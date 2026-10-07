@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rambla RP — Store</title>
+<style>
+:root{--bg:#070b12;--panel:#0d131d;--panel2:#111a26;--line:#1c2a3b;--text:#f5f8fc;--muted:#8e9aaa;--blue:#27a9ff;--blue2:#0876c9;--gold:#f4c95d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% 0%,#10304b 0,#070b12 38%),var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+a{text-decoration:none;color:inherit}.nav{height:74px;border-bottom:1px solid #ffffff12;background:#070b12dd;backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:20}
+.logo{font-weight:900;letter-spacing:2px}.logo span{color:var(--blue)}.navlinks{display:flex;gap:28px;color:#b9c3d0;font-size:14px}.navlinks a:hover{color:#fff}.cart{border:1px solid var(--line);background:#0c1420;padding:10px 15px;border-radius:12px;cursor:pointer}
+.hero{min-height:540px;padding:100px 7% 80px;display:flex;align-items:center;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:550px;height:550px;border-radius:50%;right:-120px;top:-100px;background:#1698ff18;filter:blur(10px)}
+.hero-content{max-width:760px;position:relative;z-index:2}.eyebrow{color:var(--blue);font-size:13px;font-weight:800;letter-spacing:3px}.hero h1{font-size:clamp(48px,8vw,88px);line-height:.93;margin:18px 0}.hero h1 span{color:var(--blue)}.hero p{color:#aeb8c5;font-size:18px;max-width:610px;line-height:1.7}.btn{display:inline-block;margin-top:24px;background:linear-gradient(135deg,var(--blue),var(--blue2));padding:14px 22px;border-radius:11px;font-weight:800;box-shadow:0 12px 35px #078ff744}.btn.secondary{background:#111a26;border:1px solid var(--line);margin-left:10px;box-shadow:none}
+.section{padding:75px 7%}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}.section h2{font-size:32px;margin:5px 0}.section-head p{color:var(--muted);margin:0}.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}.tab{padding:9px 14px;border:1px solid var(--line);border-radius:999px;color:#aeb8c5;background:#0b121c;cursor:pointer}.tab.active{border-color:#229fff66;color:#fff;background:#0d2438}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.card{background:linear-gradient(180deg,#111a26,#0b111a);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-5px);border-color:#248fd966}.visual{height:170px;background:radial-gradient(circle at 50% 30%,#168dd933,#0a1018 65%);display:grid;place-items:center;font-size:58px}.card-body{padding:18px}.tag{font-size:11px;color:var(--blue);font-weight:800;letter-spacing:1px}.card h3{margin:7px 0;font-size:20px}.desc{font-size:13px;color:var(--muted);min-height:40px;line-height:1.5}.price{font-size:22px;font-weight:900;margin:15px 0}.buy{width:100%;border:0;border-radius:10px;padding:12px;background:#172332;color:white;font-weight:800;cursor:pointer}.buy:hover{background:var(--blue)}
+.banner{margin:0 7% 75px;padding:42px;border:1px solid #218fd955;border-radius:20px;background:linear-gradient(100deg,#0b1c2b,#0b111a);display:flex;justify-content:space-between;align-items:center;gap:30px}.banner h2{margin:0 0 8px}.banner p{color:var(--muted);margin:0}.banner .btn{margin:0}
+footer{border-top:1px solid var(--line);padding:35px 7%;display:flex;justify-content:space-between;color:#758091;font-size:13px}.modal{display:none;position:fixed;inset:0;background:#000b;z-index:50;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modalbox{width:min(520px,100%);background:#0d141f;border:1px solid var(--line);border-radius:18px;padding:25px}.close{float:right;background:none;border:0;color:#aaa;font-size:25px;cursor:pointer}.cartitem{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}.total{font-size:22px;font-weight:900;text-align:right;margin:20px 0}.empty{color:var(--muted)}
+@media(max-width:700px){.navlinks{display:none}.hero{padding-top:65px}.btn.secondary{margin-left:0}.banner{display:block}.banner .btn{margin-top:20px}footer{display:block;line-height:2}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="logo">RAMBLA <span>RP</span></div>
+  <div class="navlinks"><a href="#inicio">Inicio</a><a href="#tienda">Tienda</a><a href="#beneficios">Beneficios</a><a href="#discord">Discord</a></div>
+  <button class="cart" onclick="openCart()">🛒 Carrito <b id="count">0</b></button>
+</nav>
+
+<header class="hero" id="inicio">
+ <div class="hero-content">
+  <div class="eyebrow">🇺🇾 MONTEVIDEO · FIVE M</div>
+  <h1>Rambla <span>RP</span><br>Store.</h1>
+  <p>Potenciá tu experiencia dentro de la ciudad. Conseguí rangos, vehículos y beneficios exclusivos para llevar tu personaje al siguiente nivel.</p>
+  <a class="btn" href="#tienda">Ver tienda</a>
+  <a class="btn secondary" href="#discord">Unirme al Discord</a>
+ </div>
+</header>
+
+<section class="section" id="tienda">
+ <div class="section-head"><div><p>PRODUCTOS DESTACADOS</p><h2>Elegí tu beneficio</h2></div></div>
+ <div class="tabs">
+  <button class="tab active" onclick="filter('all',this)">Todos</button>
+  <button class="tab" onclick="filter('vip',this)">VIP</button>
+  <button class="tab" onclick="filter('cars',this)">Vehículos</button>
+  <button class="tab" onclick="filter('packs',this)">Packs</button>
+ </div>
+ <div class="grid" id="products"></div>
+</section>
+
+<section class="section" id="beneficios">
+ <div class="section-head"><div><p>¿POR QUÉ COMPRAR?</p><h2>Beneficios</h2></div></div>
+ <div class="grid">
+  <div class="card"><div class="card-body"><div class="visual">⚡</div><h3>Entrega rápida</h3><p class="desc">Tus beneficios pueden entregarse automáticamente después de confirmar el pago.</p></div></div>
+  <div class="card"><div class="card-body"><div class="visual">🛡️</div><h3>Compra segura</h3><p class="desc">Un proceso simple y transparente para que puedas comprar con tranquilidad.</p></div></div>
+  <div class="card"><div class="card-body"><div class="visual">🎁</div><h3>Exclusivos</h3><p class="desc">Productos especiales pensados para la comunidad de Rambla RP.</p></div></div>
+ </div>
+</section>
+
+<div class="banner" id="discord">
+ <div><h2>¿Necesitás ayuda?</h2><p>Entrá al Discord oficial y contactá con nuestro equipo.</p></div>
+ <a class="btn" href="https://discord.com/" target="_blank">Abrir Discord</a>
+</div>
+
+<footer><div>© 2026 Rambla RP</div><div>Tu historia · Nuestra ciudad</div></footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeCart()">
+ <div class="modalbox"><button class="close" onclick="closeCart()">×</button><h2>Tu carrito</h2><div id="cartitems"></div><div class="total" id="total">$0</div><button class="buy" onclick="checkout()">Continuar al pago</button></div>
+</div>
+
+<script>
+const products=[
+ {id:1,cat:'vip',icon:'🥉',name:'VIP Bronce',desc:'Beneficios iniciales para destacar en la ciudad.',price:199},
+ {id:2,cat:'vip',icon:'🥈',name:'VIP Plata',desc:'Más beneficios y ventajas exclusivas.',price:399},
+ {id:3,cat:'vip',icon:'🥇',name:'VIP Oro',desc:'Experiencia premium para jugadores activos.',price:699},
+ {id:4,cat:'vip',icon:'💎',name:'VIP Diamante',desc:'El paquete premium de Rambla RP.',price:999},
+ {id:5,cat:'cars',icon:'🚘',name:'Vehículo Exclusivo',desc:'Un vehículo especial para tu personaje.',price:599},
+ {id:6,cat:'cars',icon:'🏎️',name:'Supercar Pack',desc:'Colección de vehículos de alta gama.',price:899},
+ {id:7,cat:'packs',icon:'🎁',name:'Starter Pack',desc:'Un impulso inicial para comenzar tu historia.',price:299},
+ {id:8,cat:'packs',icon:'🔥',name:'Premium Pack',desc:'Un combo completo con beneficios exclusivos.',price:799}
+];
+let cart=[];
+function render(list=products){document.getElementById('products').innerHTML=list.map(p=>`<article class="card"><div class="visual">${p.icon}</div><div class="card-body"><div class="tag">${p.cat.toUpperCase()}</div><h3>${p.name}</h3><p class="desc">${p.desc}</p><div class="price">$${p.price}</div><button class="buy" onclick="add(${p.id})">Agregar al carrito</button></div></article>`).join('')}
+function filter(cat,el){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');render(cat==='all'?products:products.filter(p=>p.cat===cat))}
+function add(id){cart.push(products.find(p=>p.id===id));update();openCart()}
+function update(){document.getElementById('count').textContent=cart.length}
+function openCart(){document.getElementById('modal').classList.add('show');let box=document.getElementById('cartitems');box.innerHTML=cart.length?cart.map((p,i)=>`<div class="cartitem"><span>${p.icon} ${p.name}</span><b>$${p.price}</b></div>`).join(''):'<p class="empty">Tu carrito está vacío.</p>';document.getElementById('total').textContent='$'+cart.reduce((a,p)=>a+p.price,0)}
+function closeCart(){document.getElementById('modal').classList.remove('show')}
+function checkout(){alert('Conectá aquí tu proveedor de pagos y sistema de entrega automática.');}
+render();
+</script>
+</body>
+</html>
